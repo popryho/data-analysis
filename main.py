@@ -1,16 +1,19 @@
-# This is a sample Python script.
+# TODO:
+#  Tasks for independent work
+#  - Expand the list of RSS channels with computer and telecommunication channels (but not trading platforms).
+#  - Create a procedure (script) for periodic downloading of information from the created list of RSS-feeds.
+#  - Implement the procedure of creating a file that combines all downloaded RSS feeds and connects them
+#  to the download script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import json
 
+import feedparser
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+with open("config.json") as json_data_file:
+    data = json.load(json_data_file)
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for link in data['links']:
+    d = feedparser.parse(link)
+    print('Number of RSS posts :', len(d.entries))
+    entry = d.entries[0]
+    print('Post Title :', entry.title)

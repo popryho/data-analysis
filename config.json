@@ -1,0 +1,16 @@
+{
+  "links": [
+    "https://ipwithease.com/feed/",
+    "https://www.networkworld.com/index.rss",
+    "https://www.reddit.com/r/networking/.rss",
+    "https://www.networkcomputing.com/taxonomy/term/11/all/feed",
+    "https://networkengineering.stackexchange.com/feeds?format=xml",
+    "https://feed.ipspace.net/blog",
+    "http://www.firewall.cx/index.php?format=feed&type=rss",
+    "https://kwallaceccie.mykajabi.com/blog.rss",
+    "https://www.zdnet.com/blog/networking/rss.xml",
+    "https://blog.router-switch.com/feed/",
+    "https://www.extremenetworks.com/feed/"
+  ],
+  "source": "https://blog.feedspot.com/networking_rss_feeds/"
+}
