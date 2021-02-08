@@ -3,7 +3,7 @@
 #  - Expand the list of RSS channels with computer and telecommunication channels (but not trading platforms).
 #  - Create a procedure (script) for periodic downloading of information from the created list of RSS-feeds.
 #  - Implement the procedure of creating a file that combines all downloaded RSS feeds and connects them
-#  to the download script.
+#  to the download output file.
 
 import json
 
@@ -14,8 +14,8 @@ import pandas as pd
 with open("config.json") as json_data_file:
     data = json.load(json_data_file)
 
+# downloading the information from the created list of RSS-feeds and combine them into dataframe
 df = pd.DataFrame()
-
 num_of_entries = 0
 for link in data['links']:
     d = feedparser.parse(link)
@@ -28,5 +28,6 @@ for link in data['links']:
 
 print("There are {} records in the dataframe".format(num_of_entries))
 
+# export downloaded RSS-feeds into output file
 with open("output.json", 'w') as outfile:
     df.to_json(outfile, orient="records")
