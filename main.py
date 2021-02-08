@@ -8,12 +8,25 @@
 import json
 
 import feedparser
+import pandas as pd
 
+# import the expanded list of links
 with open("config.json") as json_data_file:
     data = json.load(json_data_file)
 
+df = pd.DataFrame()
+
+num_of_entries = 0
 for link in data['links']:
     d = feedparser.parse(link)
-    print('Number of RSS posts :', len(d.entries))
-    entry = d.entries[0]
-    print('Post Title :', entry.title)
+    num_of_entries += len(d.entries)
+
+    df = df.append(
+        pd.DataFrame(d.entries),
+        ignore_index=True
+    )
+
+print("There are {} records in the dataframe".format(num_of_entries))
+
+with open("output.json", 'w') as outfile:
+    df.to_json(outfile, orient="records")
