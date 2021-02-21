@@ -29,5 +29,5 @@ for link in data['links']:
 print("There are {} records in the dataframe".format(num_of_entries))
 
 # export downloaded RSS-feeds into output file
-with open("output.json", 'w') as outfile:
+with open("output_task1.json", 'w') as outfile:
     df.to_json(outfile, orient="records")
