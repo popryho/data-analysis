@@ -20,7 +20,7 @@ print(res.json())
 es = Elasticsearch([{'host': 'localhost', 'port': '9200'}])
 
 # open the file with outputs and read it
-f = open("output_task2.json")
+f = open("../lab2/output_task2.json")
 data = f.read()
 
 i = 1

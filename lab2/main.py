@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_json(r'output_task1.json')
+data = pd.read_json(r'../lab1/output_task1.json')
 # necessary columns
 fields = ['title', 'link', 'summary', 'published']
 
